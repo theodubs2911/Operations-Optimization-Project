@@ -1,5 +1,6 @@
 import random
 import numpy as np
+import matplotlib.pyplot as plt
 import pulp
 from Greedy_Algo import (
     get_route, get_timing, check_for_cap, delay_window,
@@ -176,10 +177,10 @@ class MetaHeuristic:
 
         # parameters (tune these!)
         self.critical            = {}       # set of your “tightest” containers
-        self.ten_move   = 50
-        self.ten_crit   = 30
-        self.ten_barban = 20
-        self.shake_thr  = 100000
+        self.ten_move   = 20
+        self.ten_crit   = 20
+        self.ten_barban = 10
+        self.shake_thr  = 100
 
     def initial_solution(self):
         """Greedy fill each barge in master‐order with up to one shift."""
@@ -452,14 +453,29 @@ class MetaHeuristic:
             total_cost+=self.H_t[self.C_dict[c]["Wc"]]
         return total_cost, total_stops, (sum(utils)/len(utils) if utils else 0)
 
-    def local_search(self, max_iters=100000):
+    def local_search(self, max_iters=3000):
         self.initial_solution()
-        best_cost,_,_ = self.evaluate()
-        best_f       = self.f_ck.copy()
-        no_improve   = 0
+        self.best_cost, _, _ = self.evaluate()
+        best_f = self.f_ck.copy()
+        no_improve = 0
+
+        self.it_list = []
+        self.cost_list = []
+        self.best_cost_list = []
+
+        # # Set up interactive plotting
+        # plt.ion()
+        # fig, ax = plt.subplots()
+        # line1, = ax.plot([], [], label='Current Cost')
+        # line2, = ax.plot([], [], label='Best Cost', linestyle='--')
+        # ax.set_xlabel('Iteration')
+        # ax.set_ylabel('Cost')
+        # ax.set_title('Meta-Heuristic Cost Over Iterations')
+        # ax.legend()
+        # ax.grid(True)
 
         for it in range(max_iters):
-            print(it)
+            print(it, self.best_cost)
             if random.random() < 0.8:
                 moved = self.operator_move()
             else:
@@ -471,9 +487,10 @@ class MetaHeuristic:
             if not moved:
                 continue
 
-            cost,_,_ = self.evaluate()
-            if cost < best_cost:
-                best_cost, best_f = cost, self.f_ck.copy()
+            cost, _, _ = self.evaluate()
+
+            if cost < self.best_cost:
+                self.best_cost, best_f = cost, self.f_ck.copy()
                 no_improve = 0
             else:
                 self.f_ck = best_f.copy()
@@ -483,8 +500,111 @@ class MetaHeuristic:
                 self._shake()
                 no_improve = 0
 
+            self.it_list.append(it)
+            self.cost_list.append(cost)
+            self.best_cost_list.append(self.best_cost)
+
+        #     # Update plot every iteration
+        #     line1.set_data(self.it_list, self.cost_list)
+        #     line2.set_data(self.it_list, self.best_cost_list)
+        #     ax.relim()
+        #     ax.autoscale_view()
+        #     fig.canvas.draw()
+        #     fig.canvas.flush_events()
+
+        # plt.ioff()
         self.f_ck = best_f
-        return best_cost
+        return self.best_cost, self.it_list, self.cost_list, self.best_cost_list
+
+    def display_final_allocations(self):
+        """Display the final allocation of containers to barges and trucks"""
+        print("\n" + "="*80)
+        print("FINAL CONTAINER-BARGE ALLOCATIONS")
+        print("="*80)
+        
+        # Track which containers are assigned to each barge
+        barge_assignments = {k: [] for k in range(self.K)}
+        trucked_containers = []
+        
+        for c in range(self.C):
+            assigned = False
+            for k in range(self.K):
+                if self.f_ck[c, k] == 1:
+                    barge_assignments[k].append(c)
+                    assigned = True
+                    break
+            if not assigned:
+                trucked_containers.append(c)
+        
+        # Display barge assignments
+        total_barge_cost = 0
+        total_containers_on_barges = 0
+        
+        for k in range(self.K):
+            containers = barge_assignments[k]
+            if containers:
+                print(f"\nBARGE {k+1} (Capacity: {self.Barges[k]} TEU, Fixed cost: €{self.H_b[k]}):")
+                print(f"  Assigned containers: {len(containers)}")
+                
+                # Calculate total TEU and separate imports/exports
+                total_teu = 0
+                imports = []
+                exports = []
+                terminals_visited = set()
+                
+                for c in containers:
+                    container_info = self.C_dict[c]
+                    total_teu += container_info['Wc']
+                    terminals_visited.add(container_info['Terminal'])
+                    
+                    if container_info['In_or_Out'] == 1:  # Import
+                        imports.append(c)
+                    else:  # Export
+                        exports.append(c)
+                
+                print(f"  Total TEU load: {total_teu}/{self.Barges[k]} ({100*total_teu/self.Barges[k]:.1f}% utilization)")
+                print(f"  Terminals visited: {sorted(terminals_visited)}")
+                print(f"  Import containers: {len(imports)} containers")
+                print(f"  Export containers: {len(exports)} containers")
+                
+                if len(containers) <= 20:  # Only show detailed list for small assignments
+                    print(f"  Container IDs: {containers}")
+                
+                total_barge_cost += self.H_b[k]
+                total_containers_on_barges += len(containers)
+        
+        # Display trucked containers
+        print(f"\nTRUCKED CONTAINERS:")
+        print(f"  Number of containers: {len(trucked_containers)}")
+        
+        if trucked_containers:
+            truck_cost_20ft = 0
+            truck_cost_40ft = 0
+            
+            for c in trucked_containers:
+                container_info = self.C_dict[c]
+                if container_info['Wc'] == 1:  # 20ft
+                    truck_cost_20ft += self.H_t[1]
+                else:  # 40ft
+                    truck_cost_40ft += self.H_t[2]
+            
+            total_truck_cost = truck_cost_20ft + truck_cost_40ft
+            print(f"  20ft containers: {sum(1 for c in trucked_containers if self.C_dict[c]['Wc'] == 1)}")
+            print(f"  40ft containers: {sum(1 for c in trucked_containers if self.C_dict[c]['Wc'] == 2)}")
+            print(f"  Total trucking cost: €{total_truck_cost}")
+            
+            if len(trucked_containers) <= 30:  # Only show detailed list for reasonable numbers
+                print(f"  Trucked container IDs: {trucked_containers}")
+        
+        # Summary
+        print(f"\n" + "-"*50)
+        print("SUMMARY:")
+        print(f"  Total containers: {self.C}")
+        print(f"  Containers on barges: {total_containers_on_barges}")
+        print(f"  Containers trucked: {len(trucked_containers)}")
+        print(f"  Barges used: {sum(1 for k in range(self.K) if barge_assignments[k])}")
+        print(f"  Final cost: €{self.best_cost}")
+        print("="*80)
 
 
 # usage
@@ -493,4 +613,8 @@ mh = MetaHeuristic(C_ordered, C_dict, Barges,
                    T_ij_list, Handling_time)
 mh.initial_solution()
 print("greedy cost:", mh.evaluate()[0])
-print("meta‐heuristic cost:", mh.local_search())
+mh.local_search()
+print("meta‐heuristic cost:", mh.best_cost)
+
+# Display final allocations
+mh.display_final_allocations()
