@@ -475,7 +475,8 @@ class MetaHeuristic:
         # ax.grid(True)
 
         for it in range(max_iters):
-            print(it, self.best_cost)
+            if it % 100 == 0:
+                print(f"Iteration {it}, Percent Complete: {100*it/max_iters:.1f}%")
             if random.random() < 0.8:
                 moved = self.operator_move()
             else:
