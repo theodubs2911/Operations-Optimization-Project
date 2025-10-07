@@ -1,0 +1,19 @@
+[
+  {
+    "scenario": "test_1",
+    "parameters": {
+      "test_param": 1.0
+    },
+    "C_actual": 10,
+    "N_actual": 3,
+    "initial_cost": 1000.0,
+    "final_cost": 900.0,
+    "improvement": 100.0,
+    "improvement_pct": 10.0,
+    "barges_used": 2,
+    "containers_on_barges": 8,
+    "containers_trucked": 2,
+    "barge_utilization_pct": 80.0,
+    "success": true
+  }
+]

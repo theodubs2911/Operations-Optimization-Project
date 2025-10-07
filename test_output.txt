@@ -1,0 +1,8 @@
+
+🔄 Running scenario: test
+Iteration 0, Percent Complete: 0.0%
+  Final cost: €45,290 (improvement: 0.5%)
+  Barges used: 5/8, Avg utilization: 0.6%
+  Container allocation: |[48;5;208m         [48;5;21m                                         [0m|
+  🚢 Barged: 26.2% (42 containers)
+  🚛 Trucked: 82.5% (132 containers)

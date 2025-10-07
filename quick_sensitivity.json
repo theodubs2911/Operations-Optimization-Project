@@ -1,0 +1,596 @@
+[
+  {
+    "scenario": "H_t_40_base",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 40312.49999999999,
+    "final_cost": 40090,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5519379844961061,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "H_t_40",
+    "variation_pct": 0,
+    "test_value": 200
+  },
+  {
+    "scenario": "H_t_40_+20%",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 240.0,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 44472.49999999999,
+    "final_cost": 44250.0,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5003091798302159,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "H_t_40",
+    "variation_pct": 20,
+    "test_value": 240.0
+  },
+  {
+    "scenario": "H_t_40_+50%",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 300.0,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 50712.49999999999,
+    "final_cost": 50490.0,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.4387478432339024,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "H_t_40",
+    "variation_pct": 50,
+    "test_value": 300.0
+  },
+  {
+    "scenario": "H_t_20_base",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 40312.49999999999,
+    "final_cost": 40090,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5519379844961061,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "H_t_20",
+    "variation_pct": 0,
+    "test_value": 140
+  },
+  {
+    "scenario": "H_t_20_+20%",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 168.0,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 41096.49999999999,
+    "final_cost": 40874.0,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5414086357718851,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "H_t_20",
+    "variation_pct": 20,
+    "test_value": 168.0
+  },
+  {
+    "scenario": "H_t_20_+50%",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 210.0,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 42272.49999999999,
+    "final_cost": 42050.0,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5263469158436164,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "H_t_20",
+    "variation_pct": 50,
+    "test_value": 210.0
+  },
+  {
+    "scenario": "Qk_base",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 40312.49999999999,
+    "final_cost": 40090,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5519379844961061,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "Qk",
+    "variation_pct": 0,
+    "base_value": 72.8
+  },
+  {
+    "scenario": "Qk_+20%",
+    "parameters": {
+      "Qk": [
+        124,
+        118,
+        97,
+        62,
+        33
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 40312.49999999999,
+    "final_cost": 40090,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5519379844961061,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 26.953806125033715,
+    "success": true,
+    "parameter": "Qk",
+    "variation_pct": 20,
+    "base_value": 72.8
+  },
+  {
+    "scenario": "Qk_+50%",
+    "parameters": {
+      "Qk": [
+        156,
+        148,
+        121,
+        78,
+        42
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 40312.49999999999,
+    "final_cost": 40090,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5519379844961061,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 21.34030179484725,
+    "success": true,
+    "parameter": "Qk",
+    "variation_pct": 50,
+    "base_value": 72.8
+  },
+  {
+    "scenario": "num_barges_4",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 4,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 40454.0,
+    "final_cost": 37502,
+    "improvement": 2952.0,
+    "improvement_pct": 7.297177040589312,
+    "barges_used": 3,
+    "containers_on_barges": 27,
+    "containers_trucked": 147,
+    "barge_utilization_pct": 26.61803217358773,
+    "success": true,
+    "parameter": "num_barges",
+    "discrete_value": 4
+  },
+  {
+    "scenario": "num_barges_6",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 6,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 41003.0,
+    "final_cost": 40762,
+    "improvement": 241.0,
+    "improvement_pct": 0.5877618710826037,
+    "barges_used": 6,
+    "containers_on_barges": 48,
+    "containers_trucked": 126,
+    "barge_utilization_pct": 33.2037047314825,
+    "success": true,
+    "parameter": "num_barges",
+    "discrete_value": 6
+  },
+  {
+    "scenario": "num_barges_8",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 8,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 41904.0,
+    "final_cost": 41626,
+    "improvement": 278.0,
+    "improvement_pct": 0.6634211531118748,
+    "barges_used": 8,
+    "containers_on_barges": 63,
+    "containers_trucked": 111,
+    "barge_utilization_pct": 36.50992140575474,
+    "success": true,
+    "parameter": "num_barges",
+    "discrete_value": 8
+  },
+  {
+    "scenario": "C_80",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 80
+    },
+    "C_actual": 80,
+    "N_actual": 16,
+    "initial_cost": 40312.49999999999,
+    "final_cost": 40090,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5519379844961061,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "C",
+    "discrete_value": 80
+  },
+  {
+    "scenario": "C_120",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 120
+    },
+    "C_actual": 120,
+    "N_actual": 16,
+    "initial_cost": 40312.49999999999,
+    "final_cost": 40090,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5519379844961061,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "C",
+    "discrete_value": 120
+  },
+  {
+    "scenario": "C_160",
+    "parameters": {
+      "Qk": [
+        104,
+        99,
+        81,
+        52,
+        28
+      ],
+      "H_b": [
+        3700,
+        3600,
+        3400,
+        2800,
+        1800
+      ],
+      "H_t_40": 200,
+      "H_t_20": 140,
+      "Handling_time": 0.16666666666666666,
+      "travel_times": 1.0,
+      "num_barges": 5,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 40312.49999999999,
+    "final_cost": 40090,
+    "improvement": 222.49999999999272,
+    "improvement_pct": 0.5519379844961061,
+    "barges_used": 5,
+    "containers_on_barges": 42,
+    "containers_trucked": 132,
+    "barge_utilization_pct": 31.98730282063615,
+    "success": true,
+    "parameter": "C",
+    "discrete_value": 160
+  }
+]

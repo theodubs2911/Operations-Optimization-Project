@@ -608,14 +608,15 @@ class MetaHeuristic:
         print("="*80)
 
 
-# usage
-mh = MetaHeuristic(C_ordered, C_dict, Barges,
-                   H_b, H_t_20, H_t_40,
-                   T_ij_list, Handling_time)
-mh.initial_solution()
-print("greedy cost:", mh.evaluate()[0])
-mh.local_search()
-print("meta‐heuristic cost:", mh.best_cost)
+if __name__ == "__main__":
+    # usage
+    mh = MetaHeuristic(C_ordered, C_dict, Barges,
+                       H_b, H_t_20, H_t_40,
+                       T_ij_list, Handling_time)
+    mh.initial_solution()
+    print("greedy cost:", mh.evaluate()[0])
+    mh.local_search()
+    print("meta‐heuristic cost:", mh.best_cost)
 
-# Display final allocations
-mh.display_final_allocations()
+    # Display final allocations
+    mh.display_final_allocations()

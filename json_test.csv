@@ -1,0 +1,2 @@
+scenario,parameters,C_actual,N_actual,initial_cost,final_cost,improvement,improvement_pct,barges_used,containers_on_barges,containers_trucked,barge_utilization_pct,success
+test_1,{'test_param': 1.0},10,3,1000.0,900.0,100.0,10.0,2,8,2,80.0,True

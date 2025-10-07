@@ -1,0 +1,18 @@
+[
+  {
+    "scenario": "Qk_base",
+    "parameters": {
+      "Qk": 2500,
+      "H_b": 60,
+      "H_t_40": 65,
+      "H_t_20": 45,
+      "Handling_time": 0.4,
+      "travel_times": 1.0,
+      "num_barges": 8,
+      "N": 16,
+      "C": 160
+    },
+    "C_actual": 160,
+    "N_actual": 16,
+    "initial_cost": 7579.599999999999,
+    "final_cost": 
