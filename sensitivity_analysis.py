@@ -218,6 +218,9 @@ class SensitivityAnalyzer:
                 **optimizer_params
             )
             
+            # Patch global functions to use this optimizer instance
+            patch_greedy_algo(optimizer)
+            
             # Run greedy algorithm for initial solution
             greedy_results = optimizer.solve_greedy()
             
@@ -898,18 +901,31 @@ def create_custom_optimizer(seed=100, reduced=False, **custom_params):
     
     return optimizer
 
-def patch_greedy_algo():
-    """Compatibility function - no longer needed with class-based approach"""
-    pass  # No patching needed with the new class structure
+def patch_greedy_algo(optimizer_instance=None):
+    """Update global functions to use current optimizer instance"""
+    if optimizer_instance is None:
+        return  # No patching needed if no instance provided
+    
+    # Import the Greedy_Algo module to patch its global functions
+    import Greedy_Algo
+    
+    # Update global variables to match current optimizer
+    Greedy_Algo._global_optimizer = optimizer_instance
+    Greedy_Algo.C_dict = optimizer_instance.C_dict
+    Greedy_Algo.C = optimizer_instance.C
+    Greedy_Algo.N = optimizer_instance.N
+    Greedy_Algo.T_ij_list = optimizer_instance.T_matrix
+    Greedy_Algo.Barges = optimizer_instance.Barges
+    Greedy_Algo.C_ordered = optimizer_instance.C_ordered
 
 if __name__ == "__main__":
     analyzer = SensitivityAnalyzer()
     
-    # Choose analysis type
+    # Choose analysis typec
     print("📊 SENSITIVITY ANALYSIS OPTIONS:")
     print("1. Quick: H_t_40, H_t_20, Qk parameters with 3 variations each (~15 scenarios)")
-    print("2. Full: All parameters with 5 variations each (~25 scenarios)")  
-    print("3. Comprehensive: Full analysis + discrete parameters (~50+ scenarios)")
+    print("2. Full: All parameters with 5 variations each (~45 scenarios)") 
+    print("3. Comprehensive: Full analysis + discrete parameters (45+ scenarios) Currently same as Full sensitivity analysis")
     print("📈 All analyses use 3500 iterations for consistent optimization quality")
     analysis_type = input("\nEnter choice (1, 2, or 3): ").strip()
     
